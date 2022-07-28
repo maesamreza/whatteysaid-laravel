@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Admin Api Routes
+Route::prefix('admin')->namespace('Admin')->group(function(){
+    //Login Routes
+    Route::post('login',['as'=>'login','uses'=>'\App\Http\Controllers\Api\Admin\LoginController@admin_login_process']);
+    //Profile Routes
+    Route::post('profile/{id}',['as'=>'profile','uses'=>'\App\Http\Controllers\Api\Admin\ProfileController@admin_update_profile']);
+
+});
