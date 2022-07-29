@@ -28,6 +28,10 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::get('person',['as'=>'person','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_view']);
     Route::post('person/store',['as'=>'person.store','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_process']);
     Route::get('person/delete/{id}',['as'=>'person.delete','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@delete_person']);
-    Route::post('person/update',['as'=>'person.update','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_update']);
+    Route::post('person/update/{id}',['as'=>'person.update','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_update']);
 
 });
+
+//Client Api Routes
+Route::post('search',['as'=>'search','uses'=>'\App\Http\Controllers\Api\Client\SearchController@search']);
+
