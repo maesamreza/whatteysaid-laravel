@@ -22,8 +22,8 @@ class SearchController extends Controller
         if ($validator->fails()) {
             return response()->json(['status' => false, 'errors' => $validator->errors()]);
         }
-        $results = Person::where('person_A', 'like',"%{$request->$request->person_A}%")
-        ->where('person_B', 'like',"%{$request->$request->person_B}%")->get();
+        $results = Person::where('person_A', 'like',"{$request->person_A}%")
+        ->where('person_B', 'like',"{$request->person_B}%")->get();
         return response()->json(['status' => true, 'results' => $results]);
     }
 }
