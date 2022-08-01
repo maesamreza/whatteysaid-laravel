@@ -14,6 +14,16 @@ class PersonController extends Controller
         $persons = Person::all();
         return response()->json(['status' => true, 'persons' => $persons]);
     }
+    
+    public function person_edit($id){
+        $edit = Person::find($id);
+        if($edit){
+            return response()->json(['status' => true, 'edit' => $edit]);
+        }
+        else{
+            return response()->json(['status' => false, 'message' => "ID Not Found"]);
+        }
+    }
 
     public function delete_person($id){
         $delete_person = Person::find($id);
