@@ -22,8 +22,17 @@ class SearchController extends Controller
         if ($validator->fails()) {
             return response()->json(['status' => false, 'errors' => $validator->errors()]);
         }
+        else{
         $results = Person::where('person_A', 'like',"{$request->person_A}%")
         ->where('person_B', 'like',"{$request->person_B}%")->get();
-        return response()->json(['status' => true, 'results' => $results]);
+        return response()->json(['status' => true, 'results' => $results]);}
+    }
+    
+     public function count_person(Request $request,$id){
+        $count = Person::where('id',$id)->first();
+        $count->count_person=$count->count_person+1;
+        $count->save();
+        //$person = Person::where('id',$count->id)->get();
+        return response()->json(['status' => true, 'counts' => $count]);
     }
 }

@@ -30,9 +30,12 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::get('person/edit/{id}',['as'=>'person.edit','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_edit']);
     Route::get('person/delete/{id}',['as'=>'person.delete','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@delete_person']);
     Route::post('person/update/{id}',['as'=>'person.update','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_update']);
-
+    //Import Route
+    Route::post('person/import',['as'=>'person.import','uses'=>'\App\Http\Controllers\Api\Admin\ImportController@fileImport_procedure']);
 });
 
 //Client Api Routes
 Route::post('search',['as'=>'search','uses'=>'\App\Http\Controllers\Api\Client\SearchController@search']);
+Route::post('count/{id}',['as'=>'count','uses'=>'\App\Http\Controllers\Api\Client\SearchController@count_person']);
+
 
