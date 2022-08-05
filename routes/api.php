@@ -25,6 +25,7 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     //Profile Routes
     Route::post('profile/{id}',['as'=>'profile','uses'=>'\App\Http\Controllers\Api\Admin\ProfileController@admin_update_profile']);
     //Person Routes
+    Route::get('person/count',['as'=>'person.count','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@counts']);
     Route::get('person',['as'=>'person','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_view']);
     Route::post('person/store',['as'=>'person.store','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_process']);
     Route::get('person/edit/{id}',['as'=>'person.edit','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_edit']);

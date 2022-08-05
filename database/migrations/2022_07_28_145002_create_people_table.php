@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('person_B')->nullable();
             $table->text('statement')->nullable();
             $table->text('link_statement')->nullable();
-            $table->text('date')->nullable();
+            $table->date('date')->nullable();
             $table->text('status')->nullable();
             $table->text('count_person')->nullable();
             $table->timestamps();

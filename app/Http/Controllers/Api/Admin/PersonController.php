@@ -10,6 +10,11 @@ use Validator;
 class PersonController extends Controller
 {
     //
+    public function counts(){
+        $count = Person::count();
+        return response()->json(['status' => true, 'count' => $count]);
+    }
+    
     public function person_view(){
         $persons = Person::all();
         return response()->json(['status' => true, 'persons' => $persons]);
