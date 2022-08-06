@@ -19,6 +19,11 @@ class PersonController extends Controller
         $persons = Person::all();
         return response()->json(['status' => true, 'persons' => $persons]);
     }
+
+    public function said_view(){
+        $persons = Person::where('public_status','disable')->get();
+        return response()->json(['status' => true, 'persons' => $persons]);
+    }
     
     public function person_edit($id){
         $edit = Person::find($id);

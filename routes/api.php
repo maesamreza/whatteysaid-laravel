@@ -33,10 +33,19 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::post('person/update/{id}',['as'=>'person.update','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_update']);
     //Import Route
     Route::post('person/import',['as'=>'person.import','uses'=>'\App\Http\Controllers\Api\Admin\ImportController@fileImport_procedure']);
+    //Public whattheysaid Route
+    Route::get('said/view',['as'=>'said.view','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@said_view']);
+
 });
 
 //Client Api Routes
+
+//Search Route
 Route::post('search',['as'=>'search','uses'=>'\App\Http\Controllers\Api\Client\SearchController@search']);
+//Count Route
 Route::post('count/{id}',['as'=>'count','uses'=>'\App\Http\Controllers\Api\Client\SearchController@count_person']);
+//Said Route
+Route::post('said/process',['as'=>'said.process','uses'=>'\App\Http\Controllers\Api\Client\SaidController@said_process']);
+
 
 

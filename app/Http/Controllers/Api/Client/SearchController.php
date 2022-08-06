@@ -24,7 +24,8 @@ class SearchController extends Controller
         }
         else{
         $results = Person::where('person_A', 'like',"{$request->person_A}%")
-        ->where('person_B', 'like',"{$request->person_B}%")->get();
+        ->where('person_B', 'like',"{$request->person_B}%")->
+        ->where('public_status','enable')->get();
         return response()->json(['status' => true, 'results' => $results]);}
     }
     
