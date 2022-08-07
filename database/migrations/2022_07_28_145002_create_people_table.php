@@ -21,7 +21,8 @@ return new class extends Migration
             $table->text('link_statement')->nullable();
             $table->date('date')->nullable();
             $table->text('status')->nullable();
-            $table->text('public_status')->nullable()->default('enable');
+            //$table->text('public_status')->nullable()->default('enable');
+            $table->enum('public_status', ['enable', 'disable'])->default('enable');
             $table->text('count_person')->nullable();
             $table->timestamps();
         });

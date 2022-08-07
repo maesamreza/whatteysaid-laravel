@@ -33,9 +33,9 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::post('person/update/{id}',['as'=>'person.update','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@person_update']);
     //Import Route
     Route::post('person/import',['as'=>'person.import','uses'=>'\App\Http\Controllers\Api\Admin\ImportController@fileImport_procedure']);
-    //Public whattheysaid Route
+    //Public whattheysaid Routes
     Route::get('said/view',['as'=>'said.view','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@said_view']);
-
+    Route::post('said/status/{id}',['as'=>'said.status','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@status_update']);
 });
 
 //Client Api Routes

@@ -11,12 +11,12 @@ class PersonController extends Controller
 {
     //
     public function counts(){
-        $count = Person::count();
+        $count = Person::where('public_status','enable')->count();
         return response()->json(['status' => true, 'count' => $count]);
     }
     
     public function person_view(){
-        $persons = Person::all();
+        $persons = Person::where('public_status','enable')->get();
         return response()->json(['status' => true, 'persons' => $persons]);
     }
 
@@ -107,6 +107,28 @@ class PersonController extends Controller
             $person->save();
 
             return response()->json(['status' => true, 'message' => "Person Successfully Updated"]);
+        }
+    }
+    
+    public function status_update(Request $req,$id)
+    {
+        $controlls=$req->all();
+        $rules=array(
+            "public_status"=>"required",
+        );
+
+        $validator=Validator::make($controlls,$rules);
+        if ($validator->fails()) {
+            // dd($validator);
+            return response()->json(['status' => false, 'errors' => $validator->errors()]);
+        }
+        else
+        {
+            $person = Person::find($id);
+            $person->public_status = $req->public_status;
+            $person->save();
+
+            return response()->json(['status' => true, 'message' => "Statement Status Successfully Updated"]);
         }
     }
 }
