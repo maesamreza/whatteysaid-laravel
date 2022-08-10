@@ -36,6 +36,9 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     //Public whattheysaid Routes
     Route::get('said/view',['as'=>'said.view','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@said_view']);
     Route::post('said/status/{id}',['as'=>'said.status','uses'=>'\App\Http\Controllers\Api\Admin\PersonController@status_update']);
+    //Excel Download Route
+    Route::get('excel/download',['as'=>'excel.download','uses'=>'\App\Http\Controllers\Api\Admin\ImportController@excel_download']);
+
 });
 
 //Client Api Routes
@@ -46,6 +49,11 @@ Route::post('search',['as'=>'search','uses'=>'\App\Http\Controllers\Api\Client\S
 Route::post('count/{id}',['as'=>'count','uses'=>'\App\Http\Controllers\Api\Client\SearchController@count_person']);
 //Said Route
 Route::post('said/process',['as'=>'said.process','uses'=>'\App\Http\Controllers\Api\Client\SaidController@said_process']);
+//Comment Routes
+Route::post('comment/process',['as'=>'comment.process','uses'=>'\App\Http\Controllers\Api\Client\SaidController@comment_process']);
+Route::get('comment/view/{id}',['as'=>'comment.view','uses'=>'\App\Http\Controllers\Api\Client\SaidController@comment_view']);
+
+
 
 
 

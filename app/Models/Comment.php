@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Person extends Model
+class Comment extends Model
 {
     use HasFactory;
-    protected $guarded=[];
 
-    public function comments(){
-        return $this->hasMany(Comment:: class, 'people_id','id');
+    public function people(){
+        return $this->belongsTo(Person:: class, 'people_id','id');
     }
-
 }
