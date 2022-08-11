@@ -18,7 +18,7 @@ class UploadSeeder extends Seeder
     {
         //
         $admin = new ImportFile;
-        $admin->file = asset("http://127.0.0.1:8000/uploads/".'bulk1.xlsx');
+        $admin->file = asset("https://whattheysaidapi.developer-ha.xyz/uploads/".'sample.xlsx');
         $admin->save();
     }
 }

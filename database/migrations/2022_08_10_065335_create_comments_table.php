@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('people_id')->unsigned()->nullable();
             $table->text('comment');
+            $table->text('name');
             $table->foreign('people_id')->references('id')->on('people')->onDelete('cascade');
             $table->timestamps();
         });

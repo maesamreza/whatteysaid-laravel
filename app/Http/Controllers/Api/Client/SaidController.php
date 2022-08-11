@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\Comment;
+use Illuminate\Support\Str;
 use Validator;
 
 class SaidController extends Controller
@@ -64,9 +65,64 @@ class SaidController extends Controller
         }
         else
         {
+            $names = array(
+            'Johnathon',
+            'Anthony',
+            'Erasmo',
+            'Raleigh',
+            'Nancie',
+            'Tama',
+            'Camellia',
+            'Augustine',
+            'Christeen',
+            'Luz',
+            'Diego',
+            'Lyndia',
+            'Thomas',
+            'Georgianna',
+            'Leigha',
+            'Alejandro',
+            'Marquis',
+            'Joan',
+            'Stephania',
+            'Elroy',
+            'Zonia',
+            'Buffy',
+            'Sharie',
+            'Blythe',
+            'Gaylene',
+            'Elida',
+            'Randy',
+            'Margarete',
+            'Margarett',
+            'Dion',
+            'Tomi',
+            'Arden',
+            'Clora',
+            'Laine',
+            'Becki',
+            'Margherita',
+            'Bong',
+            'Jeanice',
+            'Qiana',
+            'Lawanda',
+            'Rebecka',
+            'Maribel',
+            'Tami',
+            'Yuri',
+            'Michele',
+            'Rubi',
+            'Larisa',
+            'Lloyd',
+            'Tyisha',
+            'Samatha',
+            );
+            $names[rand ( 0 , count($names) -1)];
+
             $comment = new Comment;
             $comment->people_id = $req->people_id;
             $comment->comment = $req->comment;
+            $comment->name = $names[rand ( 0 , count($names) -1)];
             $comment->save();
             
             return response()->json(['status' => true, 'message' => "Comment Successfully Created"]);
