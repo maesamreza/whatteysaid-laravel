@@ -24,6 +24,7 @@ return new class extends Migration
             //$table->text('public_status')->nullable()->default('enable');
             $table->enum('public_status', ['enable', 'disable'])->default('enable');
             $table->text('count_person')->nullable();
+            $table->text('likes_count')->nullable();
             $table->timestamps();
         });
     }
