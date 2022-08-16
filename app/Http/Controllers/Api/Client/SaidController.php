@@ -26,7 +26,7 @@ class SaidController extends Controller
             "person_B"=>"required",
             "statement"=>"required",
             "link_statement"=>"required",
-            "date"=>"required",
+            //"date"=>"required",
             //"status"=>"required"
         );
 
